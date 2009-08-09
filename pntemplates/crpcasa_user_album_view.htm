@@ -1,0 +1,23 @@
+<!--[include file="crpcasa_user_menu.htm"]-->
+<div id="crpcasa_gallery">
+
+<!--[foreach from=$images item=image]-->
+<div class="crpcasa-album-cover crpcasa-inline-block">
+	<div>
+		<div class="crpcasa_shadow" style="width:<!--[math equation="8+x" x=$thumbsize]-->px;height:<!--[math equation="8+x" x=$thumbsize]-->px;">
+			<div class="crpcasa-album-cover-frame" style="width:<!--[$thumbsize]-->px;height:<!--[$thumbsize]-->px;">
+				<img class="crpcasa-album-cover-img" src="<!--[$image.thumb]-->" alt="<!--[$image.title]-->" title="<!--[pnml name=_VIEW html=1]--> <!--[$image.title]-->"/>
+			</div>
+		</div>
+		<p class="crpcasa-album-cover-title" style="width: <!--[$thumbsize]-->px;">
+			<a class="crpcasa-album-cover-link" href="<!--[pnmodurl modname="crpCasa" func=view_image id_album=$album.id id_image=$image.id]-->" title="<!--[pnml name=_VIEW html=1]--> <!--[$image.title]-->"><!--[$image.title]--></a>
+		</p>
+	</div>
+</div>
+<!--[/foreach]-->
+
+<div style="clear:both;"></div>
+
+<!--[pager rowcount=$pager.numitems limit=$pager.itemsperpage posvar=startnum shift=1 img_prev=images/icons/extrasmall/previous.gif img_next=images/icons/extrasmall/next.gif]-->
+
+</div>

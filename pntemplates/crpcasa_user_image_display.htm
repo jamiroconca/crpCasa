@@ -1,0 +1,29 @@
+<!--[include file="crpcasa_user_menu.htm"]-->
+<div id="crpcasa_gallery">
+
+<div>
+	<div>
+		<div>
+			<div>
+				<img src="<!--[$image.content]-->" alt="<!--[$image.title]-->" title="<!--[pnml name=_VIEW html=1]--> <!--[$image.title]-->"/>
+			</div>
+		</div>
+		<p class="crpcasa-album-cover-title" style="width: <!--[$thumbsize]-->px;">
+			<a class="crpcasa-album-cover-link" href="<!--[pnmodurl modname="crpCasa" func=view_image id_image=$image.id]-->" title="<!--[pnml name=_VIEW html=1]--> <!--[$image.title]-->"><!--[$image.title]--></a>
+		</p>
+		<p class="crpcasa-album-cover-title" style="width: <!--[$thumbsize]-->px;">
+			<!--[if $previous]-->
+			<a href="<!--[pnmodurl modname=crpCasa func=view_image id_album=$album.id id_image=$previous]-->">
+				<!--[pnimg modname=core src=previous.gif set=icons/extrasmall altml=true titleml=true alt="_PREVIOUS" title="_PREVIOUS"]--></a>
+			<!--[/if]-->
+			<!--[if $next]-->
+			<a href="<!--[pnmodurl modname=crpCasa func=view_image id_album=$album.id id_image=$next]-->">
+				<!--[pnimg modname=core src=next.gif set=icons/extrasmall altml=true titleml=true alt="_NEXT" title="_NEXT"]--></a>
+			<!--[/if]-->
+		</p>
+	</div>
+</div>
+
+<div style="clear:both;"></div>
+
+</div>

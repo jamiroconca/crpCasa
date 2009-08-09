@@ -1,0 +1,61 @@
+#crpcasa_gallery {
+	border-collapse:collapse;
+}
+
+.crpcasa-album-cover {
+	margin: 0.7em;
+	text-align: left;
+	vertical-align: top;
+}
+
+html>body .crpcasa-inline-block {
+	display: inline-block;
+}
+
+.crpcasa-inline-block {
+	display: inline-block;
+	position: relative;
+}
+
+* html .crpcasa-inline-block {
+	display: inline;
+}
+
+:first-child+html .crpcasa-inline-block {
+	display: inline;
+}
+
+.crpcasa-album-cover-date,.crpcasa-album-cover-title,.crpcasa-album-cover-photocount,.crpcasa-album-cover-commentcount {
+	overflow: hidden;
+	padding: 0 0 0 2px;	
+	word-wrap: break-word;
+}
+
+.crpcasa-album-cover-title {
+	font-weight: bold;
+	margin: 0;
+}
+
+.crpcasa-album-cover-date,.crpcasa-album-cover-photocount,.crpcasa-album-cover-commentcount {
+	font-size: 80%;
+	margin: 0.15em 0 0;
+}
+
+.crpcasa_shadow {
+	background: transparent url(../pnimages/lh_sprite.gif) no-repeat scroll
+		-330px 0;
+	padding:2px 0 0 2px; 
+}
+
+.crpcasa-album-cover-frame {
+	background: #fff none repeat scroll 0 0;
+	margin:2px 0 6px 2px;
+	position: relative;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.crpcasa-album-cover-img {
+	vertical-align: bottom;
+}
