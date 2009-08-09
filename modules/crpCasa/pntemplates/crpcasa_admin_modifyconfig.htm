@@ -1,0 +1,55 @@
+<!--[include file="crpcasa_admin_menu.htm"]-->
+<div class="pn-admincontainer">
+<div class="pn-adminpageicon"><!--[pnimg modname=core src=configure.gif set=icons/large alt='_MODIFYCONFIG' altml=true]--></div>
+<h2><!--[pnml name="_MODIFYCONFIG" html=1]--></h2>
+<form class="pn-adminform" action="<!--[pnmodurl modname="crpCasa" type="admin" func="updateconfig"]-->" method="post" enctype="application/x-www-form-urlencoded">
+<div>
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="crpCasa"]-->" />
+	<fieldset>
+		<legend><!--[pnml name=_CRPCASA_GENERAL html=1]--></legend>
+		<div class="pn-adminformrow">
+			<label for="crpcasa_albumsperpage"><!--[pnml name="_CRPCASA_ALBUMSPERPAGES" html=1]--></label>
+			<input id="crpcasa_albumsperpage" type="text" name="albumsperpage" size="3" value="<!--[$albumsperpage|pnvarprepfordisplay]-->" />
+		</div>
+		<div class="pn-adminformrow">
+			<label for="crpcasa_imagesperpage"><!--[pnml name="_CRPCASA_IMAGESPERPAGES" html=1]--></label>
+			<input id="crpcasa_imagesperpage" type="text" name="imagesperpage" size="3" value="<!--[$imagesperpage|pnvarprepfordisplay]-->" />
+		</div>
+		<div class="pn-adminformrow">
+			<label for="crpcasa_imagesize"><!--[pnml name="_CRPCASA_IMAGESIZE" html=1]--></label>
+			<select id="crpcasa_imagesize" name="imagesize">
+				<option value="400" <!--[if $imagesize eq 400]-->selected<!--[/if]-->>400</option>
+				<option value="512" <!--[if $imagesize eq 512]-->selected<!--[/if]-->>512</option>
+				<option value="576" <!--[if $imagesize eq 576]-->selected<!--[/if]-->>576</option>
+				<option value="640" <!--[if $imagesize eq 640]-->selected<!--[/if]-->>640</option>
+				<option value="720" <!--[if $imagesize eq 720]-->selected<!--[/if]-->>720</option>
+				<option value="800" <!--[if $imagesize eq 800]-->selected<!--[/if]-->>800</option>
+			</select>
+			<span class="pn-sub">pixels</span>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="crpcasa_thumbsize"><!--[pnml name="_CRPCASA_THUMBSIZE" html=1]--></label>
+			<select id="crpcasa_thumbsize" name="thumbsize">
+				<option value="48" <!--[if $thumbsize eq 48]-->selected<!--[/if]-->>48</option>
+				<option value="64" <!--[if $thumbsize eq 64]-->selected<!--[/if]-->>64</option>
+				<option value="72" <!--[if $thumbsize eq 72]-->selected<!--[/if]-->>72</option>
+				<option value="144" <!--[if $thumbsize eq 144]-->selected<!--[/if]-->>144</option>
+				<option value="160" <!--[if $thumbsize eq 160]-->selected<!--[/if]-->>160</option>
+				<option value="200" <!--[if $thumbsize eq 200]-->selected<!--[/if]-->>200</option>
+			</select>
+			<span class="pn-sub">pixels</span>
+		</div>
+		<div class="pn-adminformrow">
+			<label for="crpcasa_username"><!--[pnml name="_CRPCASA_USERNAME" html=1]--></label>
+			<input id="crpcasa_username" type="text" name="username" size="48" value="<!--[$username|pnvarprepfordisplay]-->" />
+		</div>	
+	</fieldset>
+    <!--[pnmodcallhooks hookobject=module hookaction=modifyconfig module=crpCasa]-->
+    <div class="pn-adminformrow pn-adminformbuttons">
+    <a href="<!--[pnmodurl modname=crpCasa type=admin func=main]-->"><!--[pnimg modname=core src=button_cancel.gif set=icons/small altml=true titleml=true alt="_CANCEL" title="_CANCEL"]--></a>
+    <!--[pnbutton src=button_ok.gif set=icons/small alt="_UPDATECONFIG" title="_UPDATECONFIG"]-->
+    </div>
+</div>
+</form>
+
+</div>
