@@ -1,0 +1,7 @@
+crpCasa
+==============================================
+(C) Daniele Conca 2009
+
+Zikula Credits
+==============================================
+Please refer to the file included in Zikula package available from http://www.zikula.org or http://code.zikula.org for full credits.
