@@ -11,7 +11,27 @@
 		<p class="crpcasa-album-cover-title" style="width: <!--[$thumbsize]-->px;">
 			<a class="crpcasa-album-cover-link" href="<!--[pnmodurl modname="crpCasa" func=view_image id_image=$image.id]-->" title="<!--[pnml name=_VIEW html=1]--> <!--[$image.title]-->"><!--[$image.title]--></a>
 		</p>
-		<p class="crpcasa-album-cover-title" style="width: <!--[$thumbsize]-->px;">
+		
+		<!--[if !empty($comments)]-->
+		<p>
+		<h3><!--[pnml name=_CRPCASA_COMMENTS html=1]--></h3>
+		<!--[foreach from=$comments item=comment]-->		
+			<p>
+				<div>
+				<img src="<!--[$comment.author.thumbnail]-->" alt="<!--[$comment.author.nickname]-->" title="<!--[pnml name=_VIEW html=1]--> <!--[$comment.author.nickname]-->" style="float:left;margin-right:2px;"/>
+				<h4><!--[$comment.author.nickname]--></h4><em><!--[$comment.published|pndate_format]--></em>
+				</div>
+				<div>
+				<!--[$comment.content]-->
+				</div>
+			</p>
+		<!--[/foreach]-->		 
+		</p>
+		<!--[/if]-->
+		
+		<div style="clear:left;">&nbsp;</div>
+		
+		<p class="crpcasa-album-cover-title">
 			<!--[if $previous]-->
 			<a href="<!--[pnmodurl modname=crpCasa func=view_image id_album=$album.id id_image=$previous]-->">
 				<!--[pnimg modname=core src=previous.gif set=icons/extrasmall altml=true titleml=true alt="_PREVIOUS" title="_PREVIOUS"]--></a>
