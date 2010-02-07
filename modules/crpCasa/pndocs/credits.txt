@@ -5,3 +5,7 @@ crpCasa
 Zikula Credits
 ==============================================
 Please refer to the file included in Zikula package available from http://www.zikula.org or http://code.zikula.org for full credits.
+
+Lightweight PHP Picasa API v3.3
+==============================================
+Copyright 2008 Cameron Hinkle
