@@ -89,7 +89,7 @@ class crpCasaUI
 	 *
 	 * @return string html
 	 */
-	function imageDisplay($album=array(),$image=array(), $next=null, $previous=null, $modvars=array())
+	function imageDisplay($album=array(),$image=array(), $expComments=array(), $next=null, $previous=null, $modvars=array())
 	{
 		// Create output object
 		$pnRender = pnRender :: getInstance('crpCasa');
@@ -97,6 +97,7 @@ class crpCasaUI
 		$pnRender->assign($modvars);
 		$pnRender->assign('album',$album);
 		$pnRender->assign('image',$image);
+		$pnRender->assign('comments',$expComments);
 		$pnRender->assign('previous',$previous);
 		$pnRender->assign('next',$next);
 

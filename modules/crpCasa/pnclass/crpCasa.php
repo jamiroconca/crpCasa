@@ -154,10 +154,18 @@ class crpCasa
 		$vimage = $picasa->getImageById($modvars['username'], $navigationValues['id_album'], $navigationValues['id_image'], $modvars['thumbsize'], $modvars['imagesize']);
 		$image = $this->imageExplain($vimage, true);
 
+
+		foreach ($image['comments'] as $kcomment => $vcomment)
+		{
+			$singleComment = $this->commentExplain($vcomment);
+			$singleComment['author'] = $this->authorExplain($singleComment['author']);
+			$expComments[] = $singleComment;
+		}
+
 		$next = ($vimage->getNext())?$vimage->getNext()->getIdnum():'';
 		$previous = ($vimage->getPrevious())?$vimage->getPrevious()->getIdnum():'';
 
-		return $this->ui->imageDisplay($album, $image, $next, $previous, $modvars);
+		return $this->ui->imageDisplay($album, $image, $expComments, $next, $previous, $modvars);
 	}
 
 	function countAlbums()
@@ -194,6 +202,7 @@ class crpCasa
 		$image['commentcount'] = $vimage->getCommentCount();
 		$image['id'] = $vimage->getIdnum();
 		$image['content'] = ($content)?$vimage->getContent():'';
+		$image['comments'] = $vimage->getComments();
 
 		return $image;
 	}
@@ -207,6 +216,15 @@ class crpCasa
 		$comment['photoid'] = $vcomment->getPhotoid();
 		$comment['id'] = $vcomment->getIdnum();
 		$comment['content'] = $vcomment->getContent();
+
+		return $comment;
+	}
+
+	function authorExplain($vauthor)
+	{
+		$image= array();
+		$comment['nickname'] = $vauthor->getNickname();
+		$comment['thumbnail'] = $vauthor->getThumbnail();
 
 		return $comment;
 	}
