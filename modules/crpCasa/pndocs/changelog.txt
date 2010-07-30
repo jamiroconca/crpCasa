@@ -1,0 +1,5 @@
+crpCasa
+v0.1.1 - 30 July 2010
+- added random albums block
+- added max image dimension for pop-up
+- added Zikula's Imageviewer support

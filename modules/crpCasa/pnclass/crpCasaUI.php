@@ -3,7 +3,7 @@
 /**
  * crpCasa
  *
- * @copyright (c) 2009 Daniele Conca
+ * @copyright (c) 2009-2010 Daniele Conca
  * @link http://code.zikula.org/crpcasa Support and documentation
  * @author Daniele Conca <conca.daniele@gmail.com>
  * @license GNU/LGPL - v.3
@@ -89,7 +89,7 @@ class crpCasaUI
 	 *
 	 * @return string html
 	 */
-	function imageDisplay($album=array(),$image=array(), $expComments=array(), $next=null, $previous=null, $modvars=array())
+	function imageDisplay($album=array(),$image=array(),$maximage=array(), $expComments=array(), $next=null, $previous=null, $modvars=array())
 	{
 		// Create output object
 		$pnRender = pnRender :: getInstance('crpCasa');
@@ -97,6 +97,7 @@ class crpCasaUI
 		$pnRender->assign($modvars);
 		$pnRender->assign('album',$album);
 		$pnRender->assign('image',$image);
+		$pnRender->assign('maximage',$maximage);
 		$pnRender->assign('comments',$expComments);
 		$pnRender->assign('previous',$previous);
 		$pnRender->assign('next',$next);

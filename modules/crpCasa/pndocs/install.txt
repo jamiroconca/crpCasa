@@ -4,3 +4,15 @@ This software requires PHP version 5 to be installed.  Version 5.2
 is recommended because of the use of __toString() methods, although
 if you do not wish to print objects using __toString(), then
 PHP 5.0 will work fine.
+
+USAGE
+
+first thing is to do is to configure the module :
+	+ Albums per page
+	+ Images per page
+	+ Image max dimension
+	+ Thumbnail max dimension
+	+ Pop image max dimension
+	+ Picasa username account
+
+then enjoy you picasa albums into zikula	

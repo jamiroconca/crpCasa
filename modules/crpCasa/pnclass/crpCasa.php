@@ -4,7 +4,7 @@
 /**
  * crpCasa
  *
- * @copyright (c) 2009 Daniele Conca
+ * @copyright (c) 2009-2010 Daniele Conca
  * @link http://code.zikula.org/crpcasa Support and documentation
  * @author Daniele Conca <conca.daniele@gmail.com>
  * @license GNU/LGPL - v.3
@@ -51,7 +51,9 @@ class crpCasa
 		$imagesperpage = (int) FormUtil :: getPassedValue('imagesperpage', 40, 'POST');
 		$imagesize = (int) FormUtil :: getPassedValue('imagesize', 800, 'POST');
 		$thumbsize = (int) FormUtil :: getPassedValue('thumbsize', 144, 'POST');
+		$popimagesize = (int) FormUtil :: getPassedValue('popimagesize', 1024, 'POST');
 		$username = (string) FormUtil :: getPassedValue('username', null, 'POST');
+		$gallerytitle = (string) FormUtil :: getPassedValue('gallerytitle', 'crpCasa', 'POST');
 
 		if($albumsperpage < 1)
 			$albumsperpage = 20;
@@ -61,12 +63,16 @@ class crpCasa
 			$imagesize = 800;
 		if($thumbsize < 1)
 			$thumbsize = 144;
+		if($popimagesize < 1)
+			$popimagesize = 1024;
 
 		pnModSetVar('crpCasa', 'albumsperpage', $albumsperpage);
 		pnModSetVar('crpCasa', 'imagesperpage', $imagesperpage);
 		pnModSetVar('crpCasa', 'imagesize', $imagesize);
 		pnModSetVar('crpCasa', 'thumbsize', $thumbsize);
+		pnModSetVar('crpCasa', 'popimagesize', $popimagesize);
 		pnModSetVar('crpCasa', 'username', $username);
+		pnModSetVar('crpCasa', 'gallerytitle', $gallerytitle);
 
 		// Let any other modules know that the modules configuration has been updated
 		pnModCallHooks('module', 'updateconfig', 'crpCasa', array('module' => 'crpCasa'));
@@ -127,14 +133,17 @@ class crpCasa
 		// get all module vars
 		$modvars = $this->modvars;
 
-		$valbum = $picasa->getAlbumById($modvars['username'], $navigationValues['id_album'], $modvars['imagesperpage'], $navigationValues['startnum'], null, null, $modvars['thumbsize'], $modvars['imagesize']);
+		$valbum = $picasa->getAlbumById($modvars['username'], $navigationValues['id_album'], $modvars['imagesperpage'], $navigationValues['startnum'], null, null, $modvars['thumbsize'], $modvars['popimagesize']);
+
 		$album = $this->albumExplain($valbum);
 
 		$albumImages = $valbum->getImages();
+
 		foreach ($albumImages as $kimage => $vimage)
 		{
-			$expImages[] = $this->imageExplain($vimage);
+			$expImages[] = $this->imageExplain($vimage, true);
 		}
+
 		$imagesCount = $album['numphotos'];
 
 		return $this->ui->imagesList($album, $expImages, $navigationValues['startnum'], $modvars, $imagesCount);
@@ -152,8 +161,10 @@ class crpCasa
 		$album = $this->albumExplain($valbum);
 
 		$vimage = $picasa->getImageById($modvars['username'], $navigationValues['id_album'], $navigationValues['id_image'], $modvars['thumbsize'], $modvars['imagesize']);
-		$image = $this->imageExplain($vimage, true);
+		$maxvimage = $picasa->getImageById($modvars['username'], $navigationValues['id_album'], $navigationValues['id_image'], $modvars['thumbsize'], $modvars['popimagesize']);
 
+		$image = $this->imageExplain($vimage, true);
+		$maximage = $this->imageExplain($maxvimage, true);
 
 		foreach ($image['comments'] as $kcomment => $vcomment)
 		{
@@ -165,7 +176,7 @@ class crpCasa
 		$next = ($vimage->getNext())?$vimage->getNext()->getIdnum():'';
 		$previous = ($vimage->getPrevious())?$vimage->getPrevious()->getIdnum():'';
 
-		return $this->ui->imageDisplay($album, $image, $expComments, $next, $previous, $modvars);
+		return $this->ui->imageDisplay($album, $image, $maximage, $expComments, $next, $previous, $modvars);
 	}
 
 	function countAlbums()

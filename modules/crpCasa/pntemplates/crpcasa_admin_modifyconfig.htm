@@ -40,9 +40,25 @@
 			<span class="pn-sub">pixels</span>
 		</div>
 		<div class="pn-adminformrow">
+			<label for="crpcasa_popimagesize"><!--[pnml name="_CRPCASA_POPIMAGESIZE" html=1]--></label>
+			<select id="crpcasa_popimagesize" name="popimagesize">
+				<option value="800" <!--[if $popimagesize eq 800]-->selected<!--[/if]-->>800</option>
+				<option value="960" <!--[if $popimagesize eq 960]-->selected<!--[/if]-->>960</option>
+				<option value="1024" <!--[if $popimagesize eq 1024]-->selected<!--[/if]-->>1024</option>
+				<option value="1280" <!--[if $popimagesize eq 1280]-->selected<!--[/if]-->>1280</option>
+				<option value="1440" <!--[if $popimagesize eq 1440]-->selected<!--[/if]-->>1440</option>
+				<option value="1600" <!--[if $popimagesize eq 1600]-->selected<!--[/if]-->>1600</option>
+			</select>
+			<span class="pn-sub">pixels</span>
+		</div>
+		<div class="pn-adminformrow">
 			<label for="crpcasa_username"><!--[pnml name="_CRPCASA_USERNAME" html=1]--></label>
 			<input id="crpcasa_username" type="text" name="username" size="48" value="<!--[$username|pnvarprepfordisplay]-->" />
-		</div>	
+		</div>
+		<div class="pn-adminformrow">
+			<label for="crpcasa_gallerytitle"><!--[pnml name="_CRPCASA_GALLERYTITLE" html=1]--></label>
+			<input id="crpcasa_gallerytitle" type="text" name="gallerytitle" size="48" value="<!--[$gallerytitle|pnvarprepfordisplay]-->" />
+		</div>
 	</fieldset>
     <!--[pnmodcallhooks hookobject=module hookaction=modifyconfig module=crpCasa]-->
     <div class="pn-adminformrow pn-adminformbuttons">
