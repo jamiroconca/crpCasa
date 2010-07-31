@@ -1,15 +1,18 @@
 <!--[include file="crpcasa_user_menu.htm"]-->
+<!--[pnajaxheader imageviewer="true"]-->
 <div id="crpcasa_gallery">
 
 <div>
 	<div>
 		<div>
 			<div>
+				<a href="<!--[$maximage.content]-->" rel="imageviewer">
 				<img src="<!--[$image.content]-->" alt="<!--[$image.title]-->" title="<!--[pnml name=_VIEW html=1]--> <!--[$image.title]-->"/>
+				</a>
 			</div>
 		</div>
 		<p class="crpcasa-album-cover-title" style="width: <!--[$thumbsize]-->px;">
-			<a class="crpcasa-album-cover-link" href="<!--[pnmodurl modname="crpCasa" func=view_image id_image=$image.id]-->" title="<!--[pnml name=_VIEW html=1]--> <!--[$image.title]-->"><!--[$image.title]--></a>
+			<!--[$image.title]-->
 		</p>
 		
 		<!--[if !empty($comments)]-->
@@ -41,6 +44,10 @@
 				<!--[pnimg modname=core src=next.gif set=icons/extrasmall altml=true titleml=true alt="_NEXT" title="_NEXT"]--></a>
 			<!--[/if]-->
 		</p>
+		
+		<!--[pnmodurl modname="crpCasa" func=view_image id_album=$album.id id_image=$image.id assign=returnurl]-->
+    	<!--[pnmodcallhooks hookobject=item hookaction=display hookid=$image.id module=crpCasa returnurl=$returnurl]-->
+		
 	</div>
 </div>
 

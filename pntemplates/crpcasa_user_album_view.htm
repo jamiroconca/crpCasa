@@ -1,4 +1,5 @@
 <!--[include file="crpcasa_user_menu.htm"]-->
+<!--[pnajaxheader imageviewer="true"]-->
 <div id="crpcasa_gallery">
 
 <!--[foreach from=$images item=image]-->
@@ -6,7 +7,9 @@
 	<div>
 		<div class="crpcasa_shadow" style="width:<!--[math equation="8+x" x=$thumbsize]-->px;height:<!--[math equation="8+x" x=$thumbsize]-->px;">
 			<div class="crpcasa-album-cover-frame" style="width:<!--[$thumbsize]-->px;height:<!--[$thumbsize]-->px;">
+				<a class="crpcasa-album-cover-link" rel="imageviewer" href="<!--[$image.content]-->" title="<!--[pnml name=_VIEW html=1]--> <!--[$image.title]-->">
 				<img class="crpcasa-album-cover-img" src="<!--[$image.thumb]-->" alt="<!--[$image.title]-->" title="<!--[pnml name=_VIEW html=1]--> <!--[$image.title]-->"/>
+				</a>
 			</div>
 		</div>
 		<p class="crpcasa-album-cover-title" style="width: <!--[$thumbsize]-->px;">

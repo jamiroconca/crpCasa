@@ -12,7 +12,7 @@
 $modversion['name'] = _CRPCASA_NAME;
 $modversion['displayname'] = _CRPCASA_DISPLAYNAME;
 $modversion['description'] = _CRPCASA_DESCRIPTION;
-$modversion['version'] = '0.1.0';
+$modversion['version'] = '0.1.1';
 $modversion['credits'] = 'pndocs/credits.txt';
 $modversion['help'] = 'pndocs/install.txt';
 $modversion['changelog'] = 'pndocs/changelog.txt';

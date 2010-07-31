@@ -1,0 +1,27 @@
+<div class="z-center">
+<!--[foreach from=$albums item=album]-->
+<div class="crpcasa-album-cover crpcasa-inline-block">
+	<div>
+		<div class="crpcasa_shadow" style="width:<!--[math equation="8+x" x=$thumbsize]-->px;height:<!--[math equation="8+x" x=$thumbsize]-->px;">
+			<div class="crpcasa-album-cover-frame" style="width:<!--[$thumbsize]-->px;height:<!--[$thumbsize]-->px;">
+				<a class="crpcasa-album-cover-link" href="<!--[pnmodurl modname="crpCasa" func=view_album id_album=$album.id]-->" title="<!--[pnml name=_VIEW html=1]--> <!--[$album.title]-->">
+					<img class="crpcasa-album-cover-img" src="<!--[$album.icon]-->" alt="<!--[$album.title]-->" title="<!--[pnml name=_VIEW html=1]--> <!--[$album.title]-->"/>
+				</a>
+			</div>
+		</div>
+		<div class="crpcasa-album-cover-title" style="width: <!--[$thumbsize]-->px;">
+			<a class="crpcasa-album-cover-link" href="<!--[pnmodurl modname="crpCasa" func=view_album id_album=$album.id]-->" title="<!--[pnml name=_VIEW html=1]--> <!--[$album.title]-->"><!--[$album.title]--></a>
+		</div>
+		<!--[if $showdate]-->
+		<div class="crpcasa-album-cover-date" style="width: <!--[$thumbsize]-->px;"><!--[$album.date|pndate_format]--></div>
+		<!--[/if]-->
+		<!--[if $showcounter]-->
+		<div class="crpcasa-album-cover-photocount" style="width: <!--[$thumbsize]-->px;"><!--[pnml name=_CRPCASA_PHOTOS html=1]-->:<!--[$album.numphotos]--></div>
+		<!--[/if]-->		
+	</div>
+</div>
+<!--[/foreach]-->
+</div>
+<div class="z-menu z-center">
+[&nbsp;<a href="<!--[pnmodurl modname="crpCasa" type="user"|pnvarprepfordisplay]-->"><!--[pnml name=_CRPCASA_GALLERY account=$gallerytitle]--></a>]
+</div>
