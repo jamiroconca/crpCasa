@@ -1,4 +1,8 @@
 crpCasa
+v0.1.2 - 1 August 2010
+- changed some styles
+- added image description management 
+- added album's slideshow with tinyjavascript
 v0.1.1 - 30 July 2010
 - added random albums block
 - added max image dimension for pop-up

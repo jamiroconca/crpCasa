@@ -149,6 +149,30 @@ class crpCasa
 		return $this->ui->imagesList($album, $expImages, $navigationValues['startnum'], $modvars, $imagesCount);
 	}
 
+	function viewSlideshow()
+	{
+		$picasa = new Picasa();
+		$navigationValues = $this->collectNavigationFromInput();
+
+		// get all module vars
+		$modvars = $this->modvars;
+
+		$valbum = $picasa->getAlbumById($modvars['username'], $navigationValues['id_album'], $modvars['imagesperpage'], $navigationValues['startnum'], null, null, $modvars['thumbsize'], $modvars['imagesize']);
+
+		$album = $this->albumExplain($valbum);
+
+		$albumImages = $valbum->getImages();
+
+		foreach ($albumImages as $kimage => $vimage)
+		{
+			$expImages[] = $this->imageExplain($vimage, true);
+		}
+
+		$imagesCount = $album['numphotos'];
+
+		return $this->ui->slidesList($album, $expImages, $navigationValues['startnum'], $modvars, $imagesCount);
+	}
+
 	function viewImage()
 	{
 		$picasa = new Picasa();
@@ -172,7 +196,7 @@ class crpCasa
 			$singleComment['author'] = $this->authorExplain($singleComment['author']);
 			$expComments[] = $singleComment;
 		}
-
+echo '<pre>'.print_r($image,1).'</pre>';
 		$next = ($vimage->getNext())?$vimage->getNext()->getIdnum():'';
 		$previous = ($vimage->getPrevious())?$vimage->getPrevious()->getIdnum():'';
 
@@ -214,6 +238,7 @@ class crpCasa
 		$image['id'] = $vimage->getIdnum();
 		$image['content'] = ($content)?$vimage->getContent():'';
 		$image['comments'] = $vimage->getComments();
+		$image['description'] = $vimage->getDescription();
 
 		return $image;
 	}

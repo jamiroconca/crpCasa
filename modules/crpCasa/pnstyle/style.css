@@ -59,3 +59,27 @@ html>body .crpcasa-inline-block {
 .crpcasa-album-cover-img {
 	vertical-align: bottom;
 }
+
+#slideshow {list-style:none; color:#fff}
+#slideshow span {display:none}
+#crpcasa-wrapper {background:#000; margin:50px auto; display:none}
+#crpcasa-wrapper * {margin:0; padding:0;}
+#crpcasa-fullsize {position:relative; padding:2px; border:1px solid #ccc;overflow:hidden;}
+#crpcasa-information {position:absolute; bottom:0; background:#000; color:#fff; overflow:hidden; z-index:200; opacity:.7; filter:alpha(opacity=70)}
+#crpcasa-information h3 {padding:4px 8px 3px; font-size:16px}
+#crpcasa-information p {padding:0 8px 8px}
+#crpcasa-image {}
+#crpcasa-image img {position:absolute; z-index:25; width:auto;}
+.imgnav {position:absolute; width:25%; cursor:pointer; z-index:150}
+#crpcasa-imgprev {left:0; background:url(../pnimages/left.gif) left center no-repeat}
+#crpcasa-imgnext {right:0; background:url(../pnimages/right.gif) right center no-repeat}
+#imglink {position:absolute; width:100%; z-index:100; opacity:.4; filter:alpha(opacity=40)}
+.linkhover {background:url(../pnimages/link.gif) center center no-repeat}
+#crpcasa-thumbnails {margin-top:5px;}
+#crpcasa-slideleft {float:left; width:20px; background:url(../pnimages/scroll-left.gif) center center no-repeat; background-color:#222}
+#crpcasa-slideleft:hover {background-color:#333}
+#crpcasa-slideright {float:right; width:20px; background:#222 url(../pnimages/scroll-right.gif) center center no-repeat}
+#crpcasa-slideright:hover {background-color:#333}
+#crpcasa-slidearea {float:left; position:relative; margin:0 0 0 2px; overflow:hidden;background-color:#333;}
+#crpcasa-slider {position:absolute; left:0; vertical-align: middle;}
+#crpcasa-slider img {cursor:pointer; border:1px solid #666; padding:2px}

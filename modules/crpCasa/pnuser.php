@@ -67,6 +67,23 @@ function crpCasa_user_view_album()
 }
 
 /**
+ * view a single album through a slideshow
+ *
+ * @return string HTML output string
+ */
+function crpCasa_user_view_slideshow()
+{
+	// Security check
+	if (!SecurityUtil :: checkPermission('crpCasa::', '::', ACCESS_READ))
+	{
+		return LogUtil :: registerPermissionError();
+	}
+
+	$crpcasa = new crpCasa();
+	return $crpcasa->viewSlideshow();
+}
+
+/**
  * view a single image
  *
  * @return string HTML output string

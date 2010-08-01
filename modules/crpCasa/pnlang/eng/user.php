@@ -13,3 +13,4 @@ define('_CRPCASA_COMMENTS','Comments');
 define('_CRPCASA_GALLERY','%account% Web Album ');
 define('_CRPCASA_MY_PHOTOS','My Photos');
 define('_CRPCASA_PHOTOS','Photos');
+define('_CRPCASA_SLIDESHOW','Slideshow');

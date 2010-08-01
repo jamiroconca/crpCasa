@@ -8,9 +8,19 @@
 		<a href="<!--[pnmodurl modname="crpCasa"]-->" title="<!--[pnml name=_VIEW html=1]--> <!--[pnml name=_CRPCASA_MY_PHOTOS html=1]-->">
 			<!--[pnml name=_CRPCASA_MY_PHOTOS html=1]--></a>
 		<!--[if $image.id]-->
-			&raquo;&nbsp;<a href="<!--[pnmodurl modname="crpCasa" func="view_album" id_album=$album.id]-->" title="<!--[pnml name=_VIEW html=1]--> <!--[$album.title]-->"><!--[$album.title]--></a>
-			&raquo;&nbsp;<!--[$image.title]-->
-		<!--[elseif $album.id]-->&raquo;&nbsp;<!--[$album.title]--><!--[/if]-->
+		&raquo;&nbsp;<a href="<!--[pnmodurl modname="crpCasa" func="view_album" id_album=$album.id]-->" title="<!--[pnml name=_VIEW html=1]--> <!--[$album.title]-->"><!--[$album.title]--></a>
+		&raquo;&nbsp;<!--[$image.title]-->
+		<span>
+		<a href="<!--[pnmodurl modname="crpCasa" func="view_slideshow" id_album=$album.id]-->" title="<!--[pnml name=_VIEW html=1]--> <!--[$album.title]--> <!--[pnml name=_CRPCASA_SLIDESHOW html=1]-->">
+			<!--[pnimg set=crpCasa src="ico_slideshow_bn.gif" alt=$album.title]-->&nbsp;<!--[pnml name=_CRPCASA_SLIDESHOW html=1]--></a>
+		</span>
+		<!--[elseif $album.id]-->
+		&raquo;&nbsp;<!--[$album.title]-->
+		<span>
+		<a href="<!--[pnmodurl modname="crpCasa" func="view_slideshow" id_album=$album.id]-->" title="<!--[pnml name=_VIEW html=1]--> <!--[$album.title]--> <!--[pnml name=_CRPCASA_SLIDESHOW html=1]-->">
+			<!--[pnimg set=crpCasa src="ico_slideshow_bn.gif" alt=$album.title]-->&nbsp;<!--[pnml name=_CRPCASA_SLIDESHOW html=1]--></a>
+		</span>
+		<!--[/if]-->
 		
 	</p>
 </div>

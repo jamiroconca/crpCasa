@@ -5,16 +5,18 @@
 <div>
 	<div>
 		<div>
-			<div>
+			<div id="crpcasa-fullsize" style="width:<!--[$imagesize]-->px;">
+				<div id="crpcasa-information" style="width:<!--[$imagesize]-->px;">
+				<h3><!--[$image.title]--></h3>
+				<p><!--[$image.description]--></p>
+				</div>
 				<a href="<!--[$maximage.content]-->" rel="imageviewer">
 				<img src="<!--[$image.content]-->" alt="<!--[$image.title]-->" title="<!--[pnml name=_VIEW html=1]--> <!--[$image.title]-->"/>
-				</a>
-			</div>
+				</a>				
+			</div>			
 		</div>
-		<p class="crpcasa-album-cover-title" style="width: <!--[$thumbsize]-->px;">
-			<a class="crpcasa-album-cover-link" href="<!--[pnmodurl modname="crpCasa" func=view_image id_album=$album.id id_image=$image.id]-->" title="<!--[pnml name=_VIEW html=1]--> <!--[$image.title]-->"><!--[$image.title]--></a>
-		</p>
-		
+
+		<!--[nocache]-->
 		<!--[if !empty($comments)]-->
 		<p>
 		<h3><!--[pnml name=_CRPCASA_COMMENTS html=1]--></h3>
@@ -31,6 +33,7 @@
 		<!--[/foreach]-->		 
 		</p>
 		<!--[/if]-->
+		<!--[/nocache]-->
 		
 		<div style="clear:left;">&nbsp;</div>
 		
@@ -44,6 +47,10 @@
 				<!--[pnimg modname=core src=next.gif set=icons/extrasmall altml=true titleml=true alt="_NEXT" title="_NEXT"]--></a>
 			<!--[/if]-->
 		</p>
+		
+		<!--[pnmodurl modname="crpCasa" func=view_image id_album=$album.id id_image=$image.id assign=returnurl]-->
+    	<!--[pnmodcallhooks hookobject=item hookaction=display hookid=$image.id module=crpCasa returnurl=$returnurl]-->
+		
 	</div>
 </div>
 

@@ -12,7 +12,8 @@
 			</div>
 		</div>
 		<p class="crpcasa-album-cover-title" style="width: <!--[$thumbsize]-->px;">
-			<a class="crpcasa-album-cover-link" href="<!--[pnmodurl modname="crpCasa" func=view_album id_album=$album.id]-->" title="<!--[pnml name=_VIEW html=1]--> <!--[$album.title]-->"><!--[$album.title]--></a>
+			<a class="crpcasa-album-cover-link" href="<!--[pnmodurl modname="crpCasa" func=view_album id_album=$album.id]-->" title="<!--[pnml name=_VIEW html=1]--> <!--[$album.title]-->">
+				<!--[$album.title]-->&nbsp;<!--[pnimg set=crpCasa src="external-link-ltr-icon.png" alt=$album.title]--></a>
 		</p>
 		<p class="crpcasa-album-cover-date" style="width: <!--[$thumbsize]-->px;"><!--[$album.date|pndate_format]--></p>
 		<p class="crpcasa-album-cover-photocount" style="width: <!--[$thumbsize]-->px;"><!--[pnml name=_CRPCASA_PHOTOS html=1]-->:<!--[$album.numphotos]--></p>		
