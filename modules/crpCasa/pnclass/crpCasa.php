@@ -196,7 +196,7 @@ class crpCasa
 			$singleComment['author'] = $this->authorExplain($singleComment['author']);
 			$expComments[] = $singleComment;
 		}
-echo '<pre>'.print_r($image,1).'</pre>';
+
 		$next = ($vimage->getNext())?$vimage->getNext()->getIdnum():'';
 		$previous = ($vimage->getPrevious())?$vimage->getPrevious()->getIdnum():'';
 
